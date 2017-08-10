@@ -1,0 +1,144 @@
+<!-- <div class="nav"  [hidden]="isHasInitData">页面加载中...</div> -->
+<div class="todo_detail" [hidden]="!isHasInitData">
+	 <div class="nav" *ngIf="mobileDevice==='android'">
+		<!-- <a (click)="goback()" class="goback" href="javascript:;">
+			<i *ngIf="device === 0" class="iconfont icon_goback">&#xe61d;</i>
+		</a>  -->
+		{{detailTitle}}
+	</div> 
+
+	<!-- 这是主体内容部分 开始-->
+	<div id="content">
+
+		<!-- 用户信息板块 -->
+		<div class="header">
+			<div class="h_top">
+				<span class="left">{{viewModel.applicatInfo.chsName}}（{{viewModel.applicatInfo.engName}}）</span>
+				<span class="right">员工ID：{{viewModel.applicatInfo.accountName}}</span>
+			</div>
+			<div class="h_bottom">
+				<span class="left">{{viewModel.applicatInfo.orgName}}</span>
+			</div>
+		</div>
+
+		<!-- 类型板块  1.打卡异常申请 2.加班确认审批 3.加班审批 4.请假审批 5.销假审批-->
+		<div class="type" *ngIf="viewModel.applyDetails != undefined">
+			<table>
+				<tr *ngFor="let details of viewModel.applyDetails">
+					<td>{{details.label}}:</td>
+					<td>{{details.value}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<!-- 描述模块 -->
+		<div class="description">
+			<p>
+				<span class="description_title">申请原因:</span><span class="description_content">{{viewModel.applyReason}}</span></p>
+		</div>
+
+		<!-- 审批历史模块 -->
+		<div class="history">
+			<div class="item">
+				<div class="item_line"></div>
+				<div class="his_line"></div>
+				<i class="iconfont icon_angle_bg">&#xe600;</i>
+				<i class="iconfont icon_angle">&#xe600;</i>
+				<i class="icon_mask"></i>
+				<div class="dot">
+					<i class="iconfont icon_ok">&#xe602;</i>
+					<!-- <i class="iconfont icon_error" *ngIf="item.wfAction!='已同意'" >&#xe601;</i> -->
+				</div>
+				<p class="p_title">
+					<span class="_name">{{viewModel.applicatInfo.chsName}}</span>
+					<span [ngClass]="{'_status': true, status_ok: true}">已提交</span>
+				</p>
+				<p class="date_time">{{viewModel.applicatInfo.submitDate}}</p>
+			</div>
+			<div id="line_content">
+				<div class="item" *ngFor="let item of viewModel.historyList; last as isLast;">
+					<div [ngClass]="{'item_line': !isLast}"></div>
+					
+					<i class="iconfont icon_angle_bg">&#xe600;</i>
+					<i class="iconfont icon_angle">&#xe600;</i>
+					<i class="icon_mask"></i>
+					<div [ngClass]="{'dot':'true','in_handle':item.wfAction==='P','to_do':item.wfAction==='N','no_to_do':item.wfAction==='L'}">
+						<i class="iconfont icon_ok" *ngIf="item.wfAction==='A'">&#xe602;</i>
+						<i class="iconfont icon_error" *ngIf="item.wfAction==='D'">&#xe601;</i>
+					</div>
+					<p class="p_title">
+						<input type="hidden" value="{{item.approverID}}" />
+						<span class="_name">{{item.approverName}}</span>
+						<span [ngClass]="{'_status': true, 'status_error': item.wfAction==='D', 
+							'status_ok': item.wfAction==='A'}">
+								{{item.wfActionDesc}}</span>
+					</p>
+					<p class="entrustName" *ngIf="item.entrustName!=null">{{item.entrustName}}</p>
+					<p class="date_time" *ngIf="(item.wfAction == 'A' || item.wfAction == 'D')">{{item.actionDate}}</p>
+					<p class="argument" *ngIf="item.comment != undefined">审批意见：{{item.comment}} </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 这是主体内容部分 结束-->
+
+	<!-- 脚部buttom  开始 -->
+	<div class="footer" *ngIf="isDisplayApprovalButton">
+		<button type="button" (click)="Show(1)" class="f_left">批准</button>
+		<button type="button" (click)="Show(-1)" class="f_right">拒绝</button>
+	</div>
+	<!-- 脚部buttom  结束 -->
+
+	<!-- debug输入框 开始 -->
+	<div class="debug_box" *ngIf="!isHiddenDebugBox">
+		<input #debugScript type="text" class="debug_input">
+		<input type="button" class="debug_button" value="运行" (click)="runScript(debugScript.value)">
+	</div>
+	<!-- debug输入框 结束 -->
+
+	<!-- 遮罩层  开始 -->
+	<div class="footer_mask"></div>
+	<div [hidden]="isShow" class="mask"></div>
+	<!-- [hidden]="isShow"  -->
+	<div [hidden]="isShow" class="approval">
+		<div class="title">
+			<div (click)="Show(0)" class="cancel">取消</div>
+			<div class="middle">编写审批意见</div>
+			<div (click)="Show(200)" class="submit">提交</div>
+		</div>
+		<div class="comment">
+			<textarea #myTextarea id="textareaId" placeholder={{placeholder}} tabindex="1"></textarea>
+		</div>
+	</div>
+	<!-- 遮罩层  结束 -->
+
+	<!-- token过期重新登陆遮罩  开始 -->
+	<div class="reLogin_mask" *ngIf="showReloginCover">
+		<div class="reLogin">
+			<div class="reLogin_title">登陆超时，请点击刷新</div>
+			<div (click)="reLogin()" class="reLogin_button">确定</div>
+		</div>
+	</div>
+	<!-- token过期重新登陆遮罩  结束 -->
+
+	<!-- 审批提交结果，成功或失败 hidden_success -->
+	<div class="res" *ngIf="!hidden_success">
+		<i class="iconfont icon_status">&#xe661;</i>
+		<p class="res_title">提交成功,3秒后跳转</p>
+	</div>
+	<!-- //hidden_error -->
+	<div class="res" *ngIf="!hidden_error">
+		<i class="iconfont icon_err">&#xe6a8;</i>
+		<p class="res_title">提交失败,错误代码:{{cb_dataErrCode}}</p>
+	</div>
+
+	<!-- 加载动画效果 -->
+	<div id="mask" *ngIf="!showMask">
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+		<p id="callback_title">加载中...</p>
+	</div>
+</div>

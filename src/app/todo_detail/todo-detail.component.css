@@ -1,0 +1,522 @@
+/*字体图标*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../assets/fonts/font_v1/iconfont.eot');
+  src: url('../../assets/fonts/font_v1/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../../assets/fonts/font_v1/iconfont.woff') format('woff'),
+  url('../../assets/fonts/font_v1/iconfont.ttf') format('truetype'),
+  url('../../assets/fonts/font_v1/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*最外层div*/
+.todo_detail {
+    width: 100%;
+    background-color: #F0F0F0;
+}
+/*title部分--开始*/
+.nav{
+	width: 100%;
+	height: 44px;
+	color: #F55555;
+	font-size: 17px;
+	line-height: 44px;
+	text-align:center;
+	border-bottom: 1px solid #DEDEDE;
+	margin-bottom: 10px;
+	background-color: #fff;
+}
+.goback{
+	position: absolute;
+	width: 60px;
+	height: 44px;
+	left: -9px;
+	top: 0;
+}
+.icon_goback{
+	color: #636363;
+}
+/*title部分--结束*/
+
+/*主体样式*/
+
+/*用户信息板块  开始*/
+#content{
+	width: 100%;
+}
+.header{
+	width: 100%;
+	height: 66px;
+	background-color: #fff;
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+	margin-bottom: 10px;
+	padding-left: 16px;
+}
+.h_top{
+	width: 100%;
+	height: 25px;
+	/*background-color: #f00;*/
+	margin-top: 10px;
+	font-size: 15px;
+	line-height: 25px;
+	color: #000;
+	/*font-weight: bold;*/
+}
+.h_bottom{
+	width: 100%;
+	height: 22px;
+	font-size: 13px;
+	position: relative;
+	/*background-color: #f00;*/
+	line-height: 22px;
+	color: #808080;
+}
+.left{
+	display: inline-block;
+	float: left;
+}
+.right{
+	position: absolute;
+	left: 50%;
+	margin-left: 16px;
+}
+/*用户信息板块  结束*/
+
+/*开始结束类型 开始*/
+.type{
+	width: 100%;
+	background-color: #FFF;
+	border-top: 1px solid #DEDEDE;
+	margin-bottom: 10px;
+}
+.type table{
+	width: 100%;
+}
+.type tr td{
+	height: 43px;
+	display: inline-block;
+	width: 50%;
+	border-bottom: 1px solid #DEDEDE;
+	border-right: 1px solid #DEDEDE;
+	line-height: 43px;
+	font-size: 15px;
+	padding-left: 16px;
+	color: #000;
+}
+.type tr td:nth-of-type(2n){
+	border-right: none;
+}
+.description{
+	width: 100%;
+	/*height: 43px;*/
+	background-color: #fff;
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+	margin-bottom: 10px;
+	padding-left: 16px; 
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 16px;
+}
+	
+.description p{
+	font-size: 15px;
+	line-height: 18px;
+	color: #000;
+}
+/*开始结束类型 结束*/
+
+/*审批进度  开始*/
+.history{
+	width: 100%;
+	background-color: #F0F0F0;
+	padding-top: 6px;
+	padding-bottom: 45px;
+	position: relative;
+	padding-left: 41px;
+	padding-right: 16px;
+}
+.item{
+	width: 100%;
+	background-color: #fff;
+	border-radius: 5px;
+	position: relative;
+	/*line-height: 40px;*/
+	padding-top: 16px;
+	padding-bottom: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 15px;
+	border: 1px solid #DEDEDE;
+}
+.item p{
+	margin: 0;
+	color: #838383;
+}
+.icon_angle_bg{
+	position: absolute;
+	left: -8px;
+	top: 8px;
+	color: #D9D9D9;
+	font-size: 8px;
+}
+.icon_angle{
+	position: absolute;
+	font-size: 8px;
+	left: -6px;
+	top: 8px;
+	color: #fff;
+}
+.icon_mask{
+	position: absolute;
+	width: 5px;
+	height: 20px;
+	left: 0;
+	top: 8px;
+	background-color: #fff;
+}
+._name{
+	font-size: 15px;
+	color: #000;
+	float: left;
+}
+._status{
+	color: #6F7C8F;
+	float: right;
+	font-size: 15px;
+}
+.status_ok{
+	color: #4ED07F;
+	font-size: 15px;
+}
+.status_error{
+	color: #F74F4E;
+	font-size: 15px;
+}
+.p_title{
+	overflow: hidden;
+	line-height: 16px;
+}
+.item p.entrustName{
+	/* color: #F74F4E;  */
+	font-size: 15px;
+	line-height: 26px;
+}
+.date_time{
+	font-size: 12px;
+	line-height: 28px;
+	color: #838383;
+}
+.argument{
+	font-size: 15px;
+}
+#line_content{
+	height: 100%;
+	position: relative;
+}
+.item_line{
+	width: 2px;
+	height: 110%;
+	background-color: #DEDEDE;
+	position: absolute;
+	left: -25px;
+	top: 18px;
+}
+.dot{
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	border-radius: 15px;
+	left: -32px;
+	top: 8px;
+	background-color: #fff; 
+}
+.in_handle{
+	background-color: #B2B8C4; 
+}
+.to_do{
+	background-color: #B2B8C4; 
+}
+.no_to_do{
+	background-color: #B2B8C4;
+}
+.icon_ok{
+	color: #4DCF7F;
+	font-size: 27px;
+	position: absolute;
+	left: -6px;
+	top: -12px;
+}
+.icon_error{
+	color: #F74F4E;
+	font-size: 17px;
+	position: absolute;
+	left: -1px;
+	top: -6px;
+}
+
+.first_dot{
+	background-color: #B2B8C4;
+}
+
+
+/*批准拒绝按钮  开始*/
+.f_left,.f_right{
+	height: 44px;
+	float: left;
+	color: #fff;
+	font-size: 15px;
+	line-height: 44px;
+	text-align: center;
+}
+.f_left{
+	width: 62%;
+	background: url("../../assets/images/buttom.gif") no-repeat;
+	background-size: cover;
+}
+.f_right{
+	width: 38%;
+	background-color: #fff;
+	color: #F55555;
+	 border-top: 1px solid #CBCBCB; 
+}
+.footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	/* border-top: 1px solid #CBCBCB; */
+}
+.footer_mask{
+	display: none;
+	width: 80%;
+	height: 50px;
+	background-color: #f7f7f7;
+	position: fixed;
+	bottom: 0;
+}
+.approval{
+	width: 100%;
+}
+
+
+/*审批*/
+.mask{
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background-color: rgba(0,0,0,.4);
+}
+
+.approval{
+	height: 160px;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0px;
+	z-index: 999;
+}
+.approval .title{
+	width: 100%;
+	height: 50px;
+	/*background-color: #f0f;*/
+}
+.approval .comment{
+	width: 100%;
+	height: 110px;
+	/*background-color: #00f;*/
+}
+.cancel,.middle,.submit{
+	text-align: center;
+	line-height: 50px;
+}
+.cancel{
+	width: 30%;
+	height: 50px;
+	/*background-color: #000;*/
+	float: left;
+}
+.middle{
+	width: 40%;
+	height: 50px;
+	/*background-color: #0a0;*/
+	float: left;
+}
+.submit{
+	width: 30%;
+	height: 50px;
+	/*background-color: #a00;*/
+	float: left;
+	color: #F15559;
+}
+#textareaId{
+	width: 90%;
+	height: 80%;
+	resize: none;
+	border-radius: 5px;
+	margin-left: 5%;
+	margin-top: 11px;
+}
+
+/*审批样式*/
+.res{
+	width: 220px;
+	height: 140px;
+	background: rgba(0,0,0,0.6);
+	position: fixed;
+	left: 50%;
+	margin-left: -110px;
+	top: 50%;
+	margin-top: -70px;
+	border-radius: 20px;
+}
+.icon_status{
+	position: absolute;
+	color: #4ED181;
+	font-size: 50px;
+	left: 50%;
+	margin-left: -25px;
+	top: 10px;
+}
+.icon_err{
+	position: absolute;
+	color: #F55555;
+	font-size: 50px;
+	left: 50%;
+	margin-left: -25px;
+	top: 10px;
+}
+.res_title{
+	color: #fff;
+	font-size: 16px;
+	line-height: 200px;
+	text-align: center;
+}
+.reLogin_mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+.reLogin{
+	width: 200px;
+	height: 110px;
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	margin-top: -55px;
+	left: 50%;
+	margin-left: -100px;
+	border-radius: 20px;
+	-webkit-box-shadow:4px 2px 6px #000; 
+    -moz-box-shadow:3px 2px 6px #000;
+}
+.reLogin_title{
+	width: 200px;
+	height: 70px;
+	background-color: #fff;
+	border-radius: 20px 20px 0 0;
+	text-align: center;
+    line-height: 70px;
+    font-size: 16px;
+}
+.reLogin_button{
+	width: 200px;
+	height: 40px;
+	background-color: skyblue;
+	border-radius: 0 0 20px 20px;
+	text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+}
+.debug_box{
+	z-index: 9999999;
+	position: fixed;
+	width: 100%;
+	bottom: 60px;
+	left: 0;
+	text-align: center;
+}
+.debug_input{
+	width: 60%;
+	height: 30px;
+	border: 1px solid #000;
+	border-radius: 3px;
+}
+.debug_button{
+	width: 30%;
+	height: 30px;
+	border: none;
+	background-color: skyblue;
+	border-radius: 3px;
+}
+
+
+
+
+/* 动画的样式 */
+
+#mask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	z-index: 999;
+	background: rgba(0,0,0,0.5);
+}
+#callback_title{
+	color: #fff;
+	text-align: center;
+}
+.spinner {
+  margin: 200px auto 0;
+  width: 150px;
+  text-align: center;
+}
+ 
+.spinner > div {
+  width: 30px;
+  height: 30px;
+  background-color: #f95a4f;
+ 
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+ 
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
